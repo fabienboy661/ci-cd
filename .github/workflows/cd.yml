@@ -13,10 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Check Docker installation
+      run: docker --version
+
     - name: Pull docker images from dockerhub
       run: docker pull fabien123/cdi-cd:latest
+
     - name: Delete Old docker container
       run: docker rm -f cdi-cd-container || true
+      
     - name: Run Docker Container
       run: docker run -d -p 8080:8080 --name cdi-cd-container fabien123/cdi-cd
       
