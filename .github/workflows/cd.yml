@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Pull docker images from dockerhub
-      run: docker push fabien123/cdi-cd:latest
+      run: docker pull fabien123/cdi-cd:latest
     - name: Delete Old docker container
       run: docker rm -f cdi-cd-container || true
     - name: Run Docker Container
