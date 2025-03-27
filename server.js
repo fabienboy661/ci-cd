@@ -5,7 +5,7 @@ const app = express()
 app.get('/', (req, res) => {
     res.json({
         status: 200,
-        message: "Hello World from ec2 from Fabien Boy"
+        message: "Hello World from ec2 from Fabien Boy 1212"
     })
 })
 
