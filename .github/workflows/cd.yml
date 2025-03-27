@@ -1,0 +1,22 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflow: ["CI Pipeline"]
+    type:
+      - completed
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Pull docker images from dockerhub
+      run: docker push fabien123/cdi-cd:latest
+    - name: Delete Old docker container
+      run: docker rm -f cdi-cd-container || true
+    - name: Run Docker Container
+      run: docker run -d -p 8080:8080 --name cdi-cd-container fabien123/cdi-cd
+      

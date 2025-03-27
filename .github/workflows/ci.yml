@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: CI Pipeline
 
 on:
   push:
@@ -23,6 +23,6 @@ jobs:
 
     - name: Tag image
       run: docker tag cdi-cd fabien123/cdi-cd:latest
-      
+
     - name: Push to Dockerhub
       run: docker push fabien123/cdi-cd:latest
